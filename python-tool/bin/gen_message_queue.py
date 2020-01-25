@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# gen_mqe.py
+# gen_message_queue.py
 # Copyright (C) 2019 Vladimir Roncevic <elektron.ronca@gmail.com>
 #
-# gen_mqe is free software: you can redistribute it and/or modify it
+# gen_message_queue is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the
 # Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# gen_mqe is distributed in the hope that it will be useful, but
+# gen_message_queue is distributed in the hope that it will be useful, but
 # WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See the GNU General Public License for more details.
@@ -22,7 +22,7 @@ from os import getcwd
 try:
     from pathlib import Path
 
-    from mqe.mqe_setup import MQESetup
+    from message_queue.message_queue_setup import MQESetup
     from ats_utilities.cfg_base import CfgBase
     from ats_utilities.console_io.error import error_message
     from ats_utilities.console_io.verbose import verbose_message
@@ -57,8 +57,8 @@ class GenMQE(CfgBase):
     """
 
     __slots__ = ('VERBOSE', '__CONFIG', '__OPS')
-    VERBOSE = 'GEN_MQE'
-    __CONFIG = '/../conf/gen_mqe.cfg'
+    VERBOSE = 'GEN_MESSAGE_QUEUE'
+    __CONFIG = '/../conf/gen_message_queue.cfg'
     __OPS = ['-g', '--gen', '-h', '--version']
 
     def __init__(self, verbose=False):
@@ -118,6 +118,6 @@ class GenMQE(CfgBase):
             else:
                 error_message(self.name, 'project already exist !')
         else:
-            error_message('gen_mqe', 'Tool is not operational')
+            error_message('gen_message_queue', 'Tool is not operational')
         return True if status else False
 
