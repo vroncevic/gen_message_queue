@@ -2,12 +2,12 @@
 # mqe_setup.py
 # Copyright (C) 2019 Vladimir Roncevic <elektron.ronca@gmail.com>
 #
-# gen_mqe is free software: you can redistribute it and/or modify it
+# gen_message_queue is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the
 # Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# gen_mqe is distributed in the hope that it will be useful, but
+# gen_message_queue is distributed in the hope that it will be useful, but
 # WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See the GNU General Public License for more details.
@@ -54,7 +54,7 @@ class MQESetup(object):
     """
 
     __slots__ = ('VERBOSE')
-    VERBOSE = 'GEN_MQE::MQE_SETUP::MQESETUP'
+    VERBOSE = 'GEN_MESSAGE_QUEUE::GEN_MESSAGE_QUEUE_SETUP::MQESETUP'
 
     def __init__(self, verbose=False):
         """
