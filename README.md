@@ -94,7 +94,45 @@ Base flow of generation process:
 Generator structure:
 
 ```
-
+gen_message_queue/
+├── conf/
+│   ├── gen_message_queue.cfg
+│   ├── gen_message_queue_util.cfg
+│   ├── project.yaml
+│   └── template/
+│       ├── mq_posix/
+│       │   ├── mq_posix_close.template
+│       │   ├── mq_posix_fatal_error.template
+│       │   ├── mq_posix_open_mode.template
+│       │   ├── mq_posix_open.template
+│       │   ├── mq_posix_receive.template
+│       │   ├── mq_posix_send.template
+│       │   ├── mq_posix.template
+│       │   └── mq_posix_unlink.template
+│       └── mq_sysv/
+│           ├── mq_sysv_control.template
+│           ├── mq_sysv_file_to_key.template
+│           ├── mq_sysv_get_buffer.template
+│           ├── mq_sysv_get_buffer_type.template
+│           ├── mq_sysv_key_to_id.template
+│           ├── mq_sysv_receive.template
+│           ├── mq_sysv_send.template
+│           ├── mq_sysv_set_buffer.template
+│           ├── mq_sysv_set_buffer_type.template
+│           └── mq_sysv.template
+├── __init__.py
+├── log/
+│   └── gen_message_queue.log
+├── pro/
+│   ├── config/
+│   │   ├── __init__.py
+│   │   ├── pro_name.py
+│   │   └── template_dir.py
+│   ├── __init__.py
+│   ├── read_template.py
+│   └── write_template.py
+└── run/
+    └── gen_message_queue_run.py
 ```
 
 ### Docs
