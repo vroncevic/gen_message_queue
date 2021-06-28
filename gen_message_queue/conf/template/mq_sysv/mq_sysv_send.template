@@ -60,9 +60,13 @@ int mq_sysv_send(int mq_id, mq_buffer * buffer) {
 #elif MQ_IPC_NOWAIT
     mq_message_flag = IPC_NOWAIT;
 #endif
-    status = msgsnd(
-        mq_id, buffer, strlen(buffer->message_buffer) + 1, mq_message_flag
-    );
+    if (mq_id >= 0 && buffer != NULL) {
+        status = msgsnd(
+            mq_id, buffer, strlen(buffer->message_buffer) + 1, mq_message_flag
+        );
+    } else {
+        status = MQ_SYSV_ERROR;
+    }
     return status;
 }
 

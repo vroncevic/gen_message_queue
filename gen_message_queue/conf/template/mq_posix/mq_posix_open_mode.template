@@ -112,7 +112,7 @@
  *     POSIX.1-2001, POSIX.1-2008
  */
 mqd_t mq_posix_open_mode(
-    const char *name, int oflag, mode_t mode, struct mq_attr *attr
+    const char * name, int operation_flag, mode_t mode, struct mq_attr * attr
 ) {
     mqd_t mq_descriptor;
     if (name != NULL && operation_flag >= 0 && mode >= 0 && attr != NULL) {

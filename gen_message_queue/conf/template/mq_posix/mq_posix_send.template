@@ -64,7 +64,7 @@
  *     POSIX.1-2001, POSIX.1-2008
  */
 int mq_posix_send(
-    mqd_t mq_descriptor, const char *message,
+    mqd_t mq_descriptor, const char * message,
     size_t message_length, unsigned int message_priority
 ) {
     int status;

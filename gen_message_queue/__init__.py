@@ -37,10 +37,10 @@ except ImportError as ats_error_message:
     sys.exit(MESSAGE)  # Force close python ATS ##############################
 
 __author__ = 'Vladimir Roncevic'
-__copyright__ = 'Copyright 2018, https://vroncevic.github.io/GenMessageQueue'
+__copyright__ = 'Copyright 2018, https://vroncevic.github.io/gen_message_queue'
 __credits__ = ['Vladimir Roncevic']
-__license__ = 'https://github.com/vroncevic/GenMessageQueue/blob/dev/LICENSE'
-__version__ = '1.0.0'
+__license__ = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
+__version__ = '1.0.1'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -91,7 +91,7 @@ class GenMessageQueue(CfgCLI):
         if self.tool_operational:
             self.add_new_option(
                 GenMessageQueue.OPS[0], GenMessageQueue.OPS[1],
-                dest='gen', help='generate option'
+                dest='gen', help='generate message queue modules'
             )
             self.add_new_option(
                 GenMessageQueue.OPS[2], GenMessageQueue.OPS[3],
@@ -138,7 +138,7 @@ class GenMessageQueue(CfgCLI):
                         success_message(GenMessageQueue.GEN_VERBOSE, 'done\n')
                         self.logger.write_log(
                             '{0} {1} done'.format(
-                                'generating message queue for project',
+                                'generating message queue modules',
                                 getattr(args, 'gen')
                             ), ATSLogger.ATS_INFO
                         )

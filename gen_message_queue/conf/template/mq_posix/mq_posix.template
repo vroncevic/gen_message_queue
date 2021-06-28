@@ -70,7 +70,7 @@ void mq_posix_fatal_error(const char * message) __attribute__ ((noreturn));
  *     POSIX.1-2001, POSIX.1-2008
  */
 mqd_t mq_posix_open(
-    const char *name, int operation_flag
+    const char * name, int operation_flag
 ) __attribute__((nonnull (1)));
 
 /**
@@ -93,7 +93,7 @@ mqd_t mq_posix_open(
  *     POSIX.1-2001, POSIX.1-2008
  */
 mqd_t mq_posix_open_mode(
-    const char *name, int oflag, mode_t mode, struct mq_attr *attr
+    const char * name, int oflag, mode_t mode, struct mq_attr * attr
 ) __attribute__((nonnull (1, 4)));
 
 /**
@@ -117,7 +117,7 @@ mqd_t mq_posix_open_mode(
  *     POSIX.1-2001, POSIX.1-2008
  */
 int mq_posix_send(
-    mqd_t mq_descriptor, const char *message,
+    mqd_t mq_descriptor, const char * message,
     size_t message_length, unsigned int message_priority
 ) __attribute__((nonnull (2)));
 
@@ -143,7 +143,7 @@ int mq_posix_send(
  *     POSIX.1-2001, POSIX.1-2008
  */
 ssize_t mq_posix_receive(
-    mqd_t mq_descriptor, const char *message,
+    mqd_t mq_descriptor, const char * message,
     size_t message_length, unsigned int message_priority
 );
 
@@ -186,7 +186,7 @@ int mq_posix_close(mqd_t mq_descriptor);
  * Standards:
  *     POSIX.1-2001, POSIX.1-2008
  */
-int mq_posix_unlink(const char *mq_name) __attribute__((nonnull (1)));
+int mq_posix_unlink(const char * mq_name) __attribute__((nonnull (1)));
 
 #ifdef __cplusplus
 }

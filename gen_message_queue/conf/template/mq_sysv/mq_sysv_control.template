@@ -47,9 +47,13 @@
  * Standards:
  *     POSIX.1-2001, POSIX.1-2008
  */
-int mq_sysv_control(int mq_id, int command, struct msqid_ds *buffer) {
+int mq_sysv_control(int mq_id, int command, struct msqid_ds * buffer) {
     int status;
-    status = msgctl(mq_id, command, buffer);
+    if (mq_id >= 0 command >= 0 && buffer != NULL) {
+        status = msgctl(mq_id, command, buffer);
+    } else {
+        status = MQ_SYSV_ERROR;
+    }
     return status;
 }
 

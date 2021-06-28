@@ -109,7 +109,7 @@ int mq_sysv_key_to_id(key_t mq_key, int operation);
  *     POSIX.1-2001, POSIX.1-2008
  */
 void mq_sysv_set_buffer_type(
-    mq_buffer *buffer, long message_type
+    mq_buffer * buffer, long message_type
 ) __attribute__((nonnull (1)));
 
 /**
@@ -125,7 +125,7 @@ void mq_sysv_set_buffer_type(
  * Standards:
  *     POSIX.1-2001, POSIX.1-2008
  */
-long mq_sysv_get_buffer_type(mq_buffer *buffer) __attribute__((nonnull (1)));
+long mq_sysv_get_buffer_type(mq_buffer * buffer) __attribute__((nonnull (1)));
 
 /**
  * Description:
@@ -142,7 +142,7 @@ long mq_sysv_get_buffer_type(mq_buffer *buffer) __attribute__((nonnull (1)));
  *     POSIX.1-2001, POSIX.1-2008
  */
 void mq_sysv_set_buffer(
-    mq_buffer *buffer, char * message_buffer
+    mq_buffer * buffer, char * message_buffer
 ) __attribute__((nonnull (1, 2)));
 
 /**
@@ -158,7 +158,7 @@ void mq_sysv_set_buffer(
  * Standards:
  *     POSIX.1-2001, POSIX.1-2008
  */
-char * mq_sysv_get_buffer(mq_buffer *buffer) __attribute__((returns_nonnull));
+char * mq_sysv_get_buffer(mq_buffer * buffer) __attribute__((returns_nonnull));
 
 /**
  * Description:
@@ -217,7 +217,7 @@ int mq_sysv_send(int mq_id, mq_buffer * buffer) __attribute__((nonnull (2)));
  * Standards:
  *     POSIX.1-2001, POSIX.1-2008
  */
-int mq_sysv_control(int mq_id, int command, struct msqid_ds *buffer);
+int mq_sysv_control(int mq_id, int command, struct msqid_ds * buffer);
 
 #ifdef __cplusplus
 }

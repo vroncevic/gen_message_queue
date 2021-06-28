@@ -43,7 +43,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = 'Copyright 2018, https://vroncevic.github.io/gen_message_queue'
 __credits__ = ['Vladimir Roncevic']
 __license__ = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -224,7 +224,8 @@ class MessageQueue(FileChecking, ProConfig, ProName):
             :rtype: <str>
             :exceptions: None
         '''
-        return '{0} ({1}, {2}, {3})'.format(
+        return '{0} ({1}, {2}, {3}, {4}, {5})'.format(
             self.__class__.__name__, FileChecking.__str__(self),
+            ProConfig.__str__(self), ProName.__str__(self),
             str(self.__reader), str(self.__writer)
         )
