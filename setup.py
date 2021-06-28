@@ -10,8 +10,8 @@
      modify it under the terms of the GNU General Public License as published
      by the Free Software Foundation, either version 3 of the License, or
      (at your option) any later version.
-     gen_message_queue is distributed in the hope that it will be useful, but
-     WITHOUT ANY WARRANTY; without even the implied warranty of
+     gen_message_queue is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
      See the GNU General Public License for more details.
      You should have received a copy of the GNU General Public License along
@@ -29,7 +29,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = 'Copyright 2018, https://vroncevic.github.io/gen_message_queue'
 __credits__ = ['Vladimir Roncevic']
 __license__ = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -100,11 +100,11 @@ APPROVED_LICENSES = [
 PYP_CLASSIFIERS = SUPPORTED_PY_VERSIONS + APPROVED_LICENSES
 setup(
     name='gen_message_queue',
-    version='1.0.0',
+    version='1.0.1',
     description='Generating Message Queue',
     author='Vladimir Roncevic',
     author_email='elektron.ronca@gmail.com',
-    url='https://vroncevic.github.io/gen_message_queue',
+    url='https://bit.ly/3j6QOtZ',
     license='GPL 2018 Free software to use and distributed it.',
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/markdown',

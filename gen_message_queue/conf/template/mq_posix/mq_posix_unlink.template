@@ -40,7 +40,7 @@
  * Standards:
  *     POSIX.1-2001, POSIX.1-2008
  */
-int mq_posix_unlink(const char *mq_name) {
+int mq_posix_unlink(const char * mq_name) {
     int status;
     if (mq_name != NULL) {
         status = mq_unlink(mq_name);

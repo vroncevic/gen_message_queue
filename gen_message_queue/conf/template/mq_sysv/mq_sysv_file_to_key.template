@@ -35,7 +35,7 @@
  */
 key_t mq_sysv_file_to_key(const char * file_path, int key) {
     key_t mq_key;
-    if (file_path != NULL) {
+    if (file_path != NULL && key >= 0) {
         mq_key = ftok(file_path, key);
     } else {
         mq_key = MQ_SYSV_ERROR;

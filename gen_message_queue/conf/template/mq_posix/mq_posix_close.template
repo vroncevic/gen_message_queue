@@ -40,7 +40,7 @@
 
 int mq_posix_close(mqd_t mq_descriptor) {
     int status;
-    if (mq_descriptor != NULL) {
+    if (mq_descriptor >= 0) {
         status = mq_close(mq_descriptor);
     } else {
         status = MQ_POSIX_ERROR;

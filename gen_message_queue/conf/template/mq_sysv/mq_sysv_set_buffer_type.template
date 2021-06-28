@@ -33,7 +33,9 @@
  * Standards:
  *     POSIX.1-2001, POSIX.1-2008
  */
-void mq_sysv_set_buffer_type(mq_buffer *buffer, long message_type) {
-    buffer->message_type = message_type;
+void mq_sysv_set_buffer_type(mq_buffer * buffer, long message_type) {
+    if (buffer != NULL) {
+        buffer->message_type = message_type;
+    }
 }
 

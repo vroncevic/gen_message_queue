@@ -4,12 +4,12 @@
  Module
      pro_name.py
  Copyright
-     Copyright (C) 2020 Vladimir Roncevic <elektron.ronca@gmail.com>
-     gen_autoconf is free software: you can redistribute it and/or modify
+     Copyright (C) 2018 Vladimir Roncevic <elektron.ronca@gmail.com>
+     gen_message_queue is free software: you can redistribute it and/or modify
      it under the terms of the GNU General Public License as published by the
      Free Software Foundation, either version 3 of the License, or
      (at your option) any later version.
-     gen_autoconf is distributed in the hope that it will be useful, but
+     gen_message_queue is distributed in the hope that it will be useful, but
      WITHOUT ANY WARRANTY; without even the implied warranty of
      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
      See the GNU General Public License for more details.
@@ -32,10 +32,10 @@ except ImportError as ats_error_message:
     sys.exit(MESSAGE)  # Force close python ATS ##############################
 
 __author__ = 'Vladimir Roncevic'
-__copyright__ = 'Copyright 2020, Free software to use and distributed it.'
+__copyright__ = 'Copyright 2018, https://vroncevic.github.io/gen_message_queue'
 __credits__ = ['Vladimir Roncevic']
-__license__ = 'https://github.com/vroncevic/gen_autoconf/blob/dev/LICENSE'
-__version__ = '2.1.7'
+__license__ = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
+__version__ = '1.0.1'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -58,7 +58,7 @@ class ProName:
                 | __str__ - dunder method for ProName.
     '''
 
-    GEN_VERBOSE = 'GEN_AUTOCONF::PRO::CONFIG::PRO_NAME'
+    GEN_VERBOSE = 'GEN_MESSAGE_QUEUE::PRO::CONFIG::PRO_NAME'
 
     def __init__(self, verbose=False):
         '''
