@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.abspath('../../'))
 project = u'gen_message_queue'
 copyright = u'2018, Vladimir Roncevic <elektron.ronca@gmail.com>'
 author = u'Vladimir Roncevic <elektron.ronca@gmail.com>'
-version = u'1.0.1'
+version = u'1.0.2'
 release = u'https://github.com/vroncevic/gen_message_queue/releases'
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']
 templates_path = ['_templates']
