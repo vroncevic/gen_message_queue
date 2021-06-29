@@ -11,8 +11,8 @@ other information that should be provided before the modules are installed.
 
 |Python package| |GitHub issues| |Documentation Status| |GitHub contributors|
 
-.. |Python package| image:: https://github.com/vroncevic/gen_message_queue/workflows/Python%20package/badge.svg
-   :target: https://github.com/vroncevic/gen_message_queue/workflows/Python%20package/badge.svg?branch=master
+.. |Python package| image:: https://github.com/vroncevic/gen_message_queue/workflows/Python%20package%20gen_message_queue/badge.svg
+   :target: https://github.com/vroncevic/gen_message_queue/workflows/Python%20package%20gen_message_queue/badge.svg?branch=master
 
 .. |GitHub issues| image:: https://img.shields.io/github/issues/vroncevic/gen_message_queue.svg
    :target: https://github.com/vroncevic/gen_message_queue/issues
@@ -54,10 +54,12 @@ To install package type the following:
     # python2
     pip install -r requirements.txt
     python setup.py install_lib
+    python setup.py install_data
     python setup.py install_egg_info
     # pyton3
     pip3 install -r requirements.txt
     python3 setup.py install_lib
+    python3 setup.py install_data
     python3 setup.py install_egg_info
 
 You can use Docker to create image/container, or You can use pip to install:
@@ -86,7 +88,7 @@ Framework structure
 
 **gen_message_queue** is based on OOP:
 
-.. image:: https://raw.githubusercontent.com/vroncevic/gen_message_queue/dev/docs/arch_flow_usage.png
+.. image:: https://raw.githubusercontent.com/vroncevic/gen_message_queue/dev/docs/gen_message_queue_flow.png
 
 Framework structure:
 
