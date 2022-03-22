@@ -2,8 +2,14 @@ name: gen_message_queue py checker
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'gen_message_queue/**'
+      - 'setup.py'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'gen_message_queue/**'
+      - 'setup.py'
 jobs:
   build:
     runs-on: ubuntu-latest
