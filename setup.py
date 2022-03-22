@@ -118,6 +118,7 @@ setup(
     install_requires=['ats-utilities'],
     package_data = {
         'gen_message_queue': [
+            'conf/gen_message_queue.logo',
             'conf/gen_message_queue.cfg',
             'conf/gen_message_queue_util.cfg',
             'conf/project.yaml',

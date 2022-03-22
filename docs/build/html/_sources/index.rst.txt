@@ -25,7 +25,7 @@ other information that should be provided before the modules are installed.
 
 .. toctree::
    :maxdepth: 4
-   :caption: Contents:
+   :caption: Contents
 
    self
    modules
@@ -45,7 +45,7 @@ Navigate to release `page`_ download and extract release archive.
 
 .. _page: https://github.com/vroncevic/gen_message_queue/releases
 
-To install package type the following:
+To install package type the following
 
 .. code-block:: bash
 
@@ -62,7 +62,7 @@ To install package type the following:
     python3 setup.py install_data
     python3 setup.py install_egg_info
 
-You can use Docker to create image/container, or You can use pip to install:
+You can use Docker to create image/container, or You can use pip to install
 
 .. code-block:: bash
 
@@ -79,23 +79,24 @@ You can use Docker to create image/container, or You can use pip to install:
 Dependencies
 -------------
 
-**gen_message_queue** requires next modules and libraries:
+**gen_message_queue** requires next modules and libraries
 
 * `ats-utilities - Python App/Tool/Script Utilities <https://pypi.org/project/ats-utilities/>`_
 
 Framework structure
 --------------------
 
-**gen_message_queue** is based on OOP:
+**gen_message_queue** is based on OOP
 
 .. image:: https://raw.githubusercontent.com/vroncevic/gen_message_queue/dev/docs/gen_message_queue_flow.png
 
-Framework structure:
+Framework structure
 
 .. code-block:: bash
 
     gen_message_queue/
     ├── conf/
+    │   ├── gen_message_queue.logo
     │   ├── gen_message_queue.cfg
     │   ├── gen_message_queue_util.cfg
     │   ├── project.yaml

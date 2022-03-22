@@ -21,9 +21,9 @@
 '''
 
 import sys
+from os.path import dirname, realpath
 
 try:
-    from pathlib import Path
     from gen_message_queue.pro.config import ProConfig
     from gen_message_queue.pro.config.pro_name import ProName
     from gen_message_queue.pro.read_template import ReadTemplate
@@ -87,7 +87,7 @@ class MessageQueue(FileChecking, ProConfig, ProName):
         self.__reader = ReadTemplate(verbose=verbose)
         self.__writer = WriteTemplate(verbose=verbose)
         project_structure = '{0}{1}'.format(
-            Path(__file__).parent, MessageQueue.PRO_STRUCTURE
+            dirname(realpath(__file__)), MessageQueue.PRO_STRUCTURE
         )
         self.check_path(file_path=project_structure, verbose=verbose)
         self.check_mode(file_mode='r', verbose=verbose)
@@ -152,14 +152,8 @@ class MessageQueue(FileChecking, ProConfig, ProName):
                         'to be processed template', template_file
                     )
             while True:
-                try:
-                    try:
-                        input_type = raw_input(' select project type: ')
-                    except NameError:
-                        input_type = input(' select project type: ')
-                    options = xrange(1, pro_types_len + 1, 1)
-                except NameError:
-                    options = range(1, pro_types_len + 1, 1)
+                input_type = input(' select project type: ')
+                options = range(1, pro_types_len + 1, 1)
                 try:
                     if int(input_type) in list(options):
                         for target in types[int(input_type) - 1].keys():
