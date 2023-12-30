@@ -1,5 +1,5 @@
 templates:
-  - mq_posix:
+  - posix:
     - mq_posix.template
     - mq_posix_fatal_error.template
     - mq_posix_open_mode.template
@@ -8,7 +8,7 @@ templates:
     - mq_posix_send.template
     - mq_posix_close.template
     - mq_posix_unlink.template
-  - mq_sysv:
+  - sysv:
     - mq_sysv.template
     - mq_sysv_get_buffer.template
     - mq_sysv_set_buffer.template
@@ -19,10 +19,9 @@ templates:
     - mq_sysv_receive.template
     - mq_sysv_send.template
     - mq_sysv_control.template
-  - cancel: null
 
 modules:
-  - mq_posix:
+  - posix:
     - mq_posix.h
     - mq_posix_fatal_error.c
     - mq_posix_open_mode.c
@@ -31,7 +30,7 @@ modules:
     - mq_posix_send.c
     - mq_posix_close.c
     - mq_posix_unlink.c
-  - mq_sysv:
+  - sysv:
     - mq_sysv.h
     - mq_sysv_get_buffer.c
     - mq_sysv_set_buffer.c

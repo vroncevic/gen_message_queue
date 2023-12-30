@@ -1,197 +1,220 @@
 # -*- coding: UTF-8 -*-
 
 '''
- Module
-     __init__.py
- Copyright
-     Copyright (C) 2018 Vladimir Roncevic <elektron.ronca@gmail.com>
-     GenMessageQueue is free software: you can redistribute it and/or
-     modify it under the terms of the GNU General Public License as published
-     by the Free Software Foundation, either version 3 of the License, or
-     (at your option) any later version.
-     GenMessageQueue is distributed in the hope that it will be useful, but
-     WITHOUT ANY WARRANTY; without even the implied warranty of
-     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-     See the GNU General Public License for more details.
-     You should have received a copy of the GNU General Public License along
-     with this program. If not, see <http://www.gnu.org/licenses/>.
- Info
-     Defined class GenMessageQueue with attribute(s) and method(s).
-     Load a base info, create an CLI interface and run operation(s).
+Module
+    __init__.py
+Copyright
+    Copyright (C) 2018 - 2024 Vladimir Roncevic <elektron.ronca@gmail.com>
+    GenMessageQueue is free software: you can redistribute it and/or
+    modify it under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    GenMessageQueue is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License along
+    with this program. If not, see <http://www.gnu.org/licenses/>.
+Info
+    Defines class GenMessageQueue with attribute(s) and method(s).
+    Loads a base info, creates an CLI interface and runs operations.
 '''
 
 import sys
+from typing import Any, List, Dict
+from argparse import Namespace
 from os.path import exists, dirname, realpath
 
 try:
-    from six import add_metaclass
-    from gen_message_queue.pro import MessageQueue
     from ats_utilities.splash import Splash
     from ats_utilities.logging import ATSLogger
     from ats_utilities.cli.cfg_cli import CfgCLI
-    from ats_utilities.cooperative import CooperativeMeta
     from ats_utilities.console_io.error import error_message
     from ats_utilities.console_io.verbose import verbose_message
     from ats_utilities.console_io.success import success_message
+    from ats_utilities.exceptions.ats_type_error import ATSTypeError
+    from ats_utilities.exceptions.ats_value_error import ATSValueError
+    from gen_message_queue.pro import MessageQueue
 except ImportError as ats_error_message:
-    MESSAGE = '\n{0}\n{1}\n'.format(__file__, ats_error_message)
-    sys.exit(MESSAGE)  # Force close python ATS ##############################
+    # Force close python ATS ##################################################
+    sys.exit(f'\n{__file__}\n{ats_error_message}\n')
 
 __author__ = 'Vladimir Roncevic'
-__copyright__ = 'Copyright 2018, https://vroncevic.github.io/gen_message_queue'
-__credits__ = ['Vladimir Roncevic']
+__copyright__ = '(C) 2024, https://vroncevic.github.io/gen_message_queue'
+__credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
-__version__ = '1.0.3'
+__version__ = '1.1.3'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
 
 
-@add_metaclass(CooperativeMeta)
 class GenMessageQueue(CfgCLI):
     '''
-        Defined class GenMessageQueue with attribute(s) and method(s).
-        Load a base info, create an CLI interface and run operation(s).
+        Defines class GenMessageQueue with attribute(s) and method(s).
+        Loads a base info, creates an CLI interface and runs operations.
+
         It defines:
 
             :attributes:
-                | GEN_VERBOSE - console text indicator for process-phase.
-                | CONFIG - tool info file path.
-                | LOG - tool log file path.
-                | LOGO - logo for splash screen.
-                | OPS - list of tool options.
-                | logger - logger object API.
+                | __GEN_VERBOSE - Console text indicator for process-phase.
+                | _CONFIG - Tool info file path.
+                | _LOG - Tool log file path.
+                | _LOGO - Logo for splash screen.
+                | _OPS - List of tool options.
+                | _logger - Logger object API.
             :methods:
-                | __init__ - initial constructor.
-                | process - process and run operation.
-                | __str__ - dunder method for GenMessageQueue.
+                | __init__ - Initials GenMessageQueue constructor.
+                | process - Processes and runs operations.
     '''
 
-    GEN_VERBOSE = 'GEN_MESSAGE_QUEUE'
-    CONFIG = '/conf/gen_message_queue.cfg'
-    LOG = '/log/gen_message_queue.log'
-    LOGO = '/conf/gen_message_queue.logo'
-    OPS = ['-g', '--gen', '-v', '--verbose', '--version']
+    _GEN_VERBOSE: str = 'GEN_MESSAGE_QUEUE'
+    _CONFIG: str = '/conf/gen_message_queue.cfg'
+    _LOG: str = '/log/gen_message_queue.log'
+    _LOGO: str = '/conf/gen_message_queue.logo'
+    _OPS: List[str] = [
+        '-g', '--gen', '-t', '--type', '-v', '--verbose', '--version'
+    ]
 
-    def __init__(self, verbose=False):
+    def __init__(self, verbose: bool = False) -> None:
         '''
             Initial constructor.
 
-            :param verbose: enable/disable verbose option.
+            :param verbose: Enable/Disable verbose option
             :type verbose: <bool>
             :exceptions: None
         '''
-        current_dir = dirname(realpath(__file__))
-        gen_message_queue_property = {
+        current_dir: str = dirname(realpath(__file__))
+        gen_autoconf_property: Dict[str, str | bool] = {
             'ats_organization': 'vroncevic',
-            'ats_repository': 'gen_message_queue',
-            'ats_name': 'gen_message_queue',
-            'ats_logo_path': '{0}{1}'.format(
-                current_dir, GenMessageQueue.LOGO
-            ),
+            'ats_repository': f'{self._GEN_VERBOSE.lower()}',
+            'ats_name': f'{self._GEN_VERBOSE.lower()}',
+            'ats_logo_path': f'{current_dir}{self._LOGO}',
             'ats_use_github_infrastructure': True
         }
-        splash = Splash(gen_message_queue_property, verbose=verbose)
-        base_info = '{0}{1}'.format(current_dir, GenMessageQueue.CONFIG)
-        CfgCLI.__init__(self, base_info, verbose=verbose)
-        verbose_message(GenMessageQueue.GEN_VERBOSE, verbose, 'init tool info')
-        self.logger = ATSLogger(
-            GenMessageQueue.GEN_VERBOSE.lower(),
-            '{0}{1}'.format(current_dir, GenMessageQueue.LOG),
-            verbose=verbose
+        Splash(gen_autoconf_property, verbose)
+        base_info: str = f'{current_dir}{self._CONFIG}'
+        super().__init__(base_info, verbose)
+        verbose_message(
+            verbose, [f'{self._GEN_VERBOSE.lower()} init tool info']
+        )
+        self._logger: ATSLogger = ATSLogger(
+            self._GEN_VERBOSE.lower(), f'{current_dir}{self._LOG}', verbose
         )
         if self.tool_operational:
             self.add_new_option(
-                GenMessageQueue.OPS[0], GenMessageQueue.OPS[1],
-                dest='gen', help='generate message queue modules'
+                self._OPS[0], self._OPS[1],
+                dest='gen', help='generate driver (provide project name)'
             )
             self.add_new_option(
-                GenMessageQueue.OPS[2], GenMessageQueue.OPS[3],
+                self._OPS[2], self._OPS[3],
+                dest='type', help='driver type (posix | sysv)'
+            )
+            self.add_new_option(
+                self._OPS[4], self._OPS[5],
                 action='store_true', default=False,
                 help='activate verbose mode for generation'
             )
             self.add_new_option(
-                GenMessageQueue.OPS[4], action='version', version=__version__
+                self._OPS[6], action='version', version=__version__
             )
 
-    def process(self, verbose=False):
+    def process(self, verbose: bool = False) -> bool:
         '''
             Process and run operation.
 
-            :param verbose: enable/disable verbose option.
+            :param verbose: Enable/Disable verbose option
             :type verbose: <bool>
-            :return: boolean status, True (success) | False.
+            :return: True (success operation) | False
             :rtype: <bool>
             :exceptions: None
         '''
-        status = False
+        status: bool = False
         if self.tool_operational:
-            num_of_args_sys = len(sys.argv)
-            if num_of_args_sys > 1:
-                operation = sys.argv[1]
-                if operation not in GenMessageQueue.OPS:
-                    sys.argv.append('-h')
-            else:
-                sys.argv.append('-h')
-            args = self.parse_args(sys.argv[1:])
-            pro_exists = exists(getattr(args, 'gen'))
-            if not pro_exists:
-                if bool(getattr(args, 'gen')):
-                    print(
-                        '{0} {1} [{2}]'.format(
-                            '[{0}]'.format(
-                                GenMessageQueue.GEN_VERBOSE.lower()
-                            ), 'generating', getattr(args, 'gen')
-                        )
+            if len(sys.argv) >= 6:
+                options: List[str] = [
+                    arg for i, arg in enumerate(sys.argv) if i % 2 == 0
+                ]
+                if any(arg not in self._OPS for arg in options[1:]):
+                    error_message(
+                        [
+                            f'{self._GEN_VERBOSE.lower()}',
+                            'provide name (-g name) and',
+                            'type (-t posix | sysv)'
+                        ]
                     )
-                    generator = MessageQueue(verbose=verbose)
-                    status = generator.gen_setup(getattr(args, 'gen'), verbose)
-                    if status:
-                        success_message(GenMessageQueue.GEN_VERBOSE, 'done\n')
-                        self.logger.write_log(
-                            '{0} {1} done'.format(
-                                'generating message queue modules',
-                                getattr(args, 'gen')
-                            ), ATSLogger.ATS_INFO
-                        )
-                    else:
-                        error_message(
-                            GenMessageQueue.GEN_VERBOSE, 'generation failed'
-                        )
-                        self.logger.write_log(
-                            'generation failed', ATSLogger.ATS_ERROR
-                        )
+                    self._logger.write_log(
+                        'missing model name or type', self._logger.ATS_ERROR
+                    )
+                    return status
+            else:
+                error_message(
+                    [
+                        f'{self._GEN_VERBOSE.lower()}',
+                        'provide name (-g name) and',
+                        'type (-t posix | sysv)'
+                    ]
+                )
+                self._logger.write_log(
+                    'missing model name or type', self._logger.ATS_ERROR
+                )
+                return status
+            args: Any | Namespace = self.parse_args(sys.argv[2:])
+            if not exists(getattr(args, 'gen')):
+                print(
+                    " ".join([
+                        f'[{self._GEN_VERBOSE.lower()}]',
+                        'gen MSG QUEUE skeleton',
+                        str(getattr(args, 'gen'))
+                    ])
+                )
+                generator: MessageQueue = MessageQueue(
+                    getattr(args, 'verbose') or verbose
+                )
+                try:
+                    status = generator.gen_setup(
+                        f'{getattr(args, "gen")}',
+                        f'{getattr(args, "type")}',
+                        getattr(args, 'verbose') or verbose
+                    )
+                except (ATSTypeError, ATSValueError) as e:
+                    error_message(
+                        [f'{self._GEN_VERBOSE.lower()} {str(e)}']
+                    )
+                    self._logger.write_log(
+                        f'{str(e)}', self._logger.ATS_ERROR
+                    )
+                if status:
+                    success_message(
+                        [f'{self._GEN_VERBOSE.lower()} done\n']
+                    )
+                    self._logger.write_log(
+                        f'gen pro {getattr(args, "gen")} done',
+                        self._logger.ATS_INFO
+                    )
                 else:
                     error_message(
-                        GenMessageQueue.GEN_VERBOSE, 'provide project name'
+                        [f'{self._GEN_VERBOSE.lower()} generation failed']
                     )
-                    self.logger.write_log(
-                        'provide project name', ATSLogger.ATS_ERROR
+                    self._logger.write_log(
+                        'generation failed', self._logger.ATS_ERROR
                     )
             else:
                 error_message(
-                    GenMessageQueue.GEN_VERBOSE, 'project already exist'
+                    [
+                        f'{self._GEN_VERBOSE.lower()}',
+                        f'project with name [{getattr(args, "gen")}] exists'
+                    ]
                 )
-                self.logger.write_log(
-                    'project already exist', ATSLogger.ATS_ERROR
+                self._logger.write_log(
+                    f'project with name [{getattr(args, "gen")}] exists',
+                    self._logger.ATS_ERROR
                 )
         else:
             error_message(
-                GenMessageQueue.GEN_VERBOSE, 'tool is not operational'
+                [f'{self._GEN_VERBOSE.lower()} tool is not operational']
             )
-            self.logger.write_log(
-                'tool is not operational', ATSLogger.ATS_ERROR
+            self._logger.write_log(
+                'tool is not operational', self._logger.ATS_ERROR
             )
         return status
-
-    def __str__(self):
-        '''
-            Dunder method for GenMessageQueue.
-
-            :return: object in a human-readable format.
-            :rtype: <str>
-            :exceptions: None
-        '''
-        return '{0} ({1}, {2})'.format(
-            self.__class__.__name__, CfgCLI.__str__(self), str(self.logger)
-        )
