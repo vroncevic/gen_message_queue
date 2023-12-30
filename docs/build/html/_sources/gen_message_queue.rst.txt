@@ -5,13 +5,15 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
-    gen_message_queue.pro
+   gen_message_queue.pro
 
 Module contents
 ---------------
 
 .. automodule:: gen_message_queue
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
