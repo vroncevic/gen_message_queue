@@ -42,7 +42,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2024, https://vroncevic.github.io/gen_message_queue'
 __credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
-__version__ = '1.1.3'
+__version__ = '1.1.4'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -51,7 +51,7 @@ __status__ = 'Updated'
 class MessageQueue(FileCheck, ProConfig, ProName):
     '''
         Defines class MessageQueue with attribute(s) and method(s).
-        Generates LKM by templates and parameters.
+        Generates MSG QUEUE by templates and parameters.
 
         It defines:
 
@@ -152,12 +152,12 @@ class MessageQueue(FileCheck, ProConfig, ProName):
                 'generate', pro_type, 'form', pro_name
             ]
         )
-        template_content: Dict[str, str] | None = None
-        if bool(self._reader):
-            template_content = self._reader.read(
+        if bool(self._reader) and bool(self.config):
+            template_content: Dict[str, str] = self._reader.read(
                 self.config, pro_name, pro_type, verbose
             )
-        if all([bool(template_content), bool(self._writer)]):
-            if self._writer.write(template_content, pro_name, verbose):
-                status = True
+            if bool(template_content) and bool(self._writer):
+                status = self._writer.write(
+                    template_content, pro_name, verbose
+                )
         return status
