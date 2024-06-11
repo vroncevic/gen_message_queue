@@ -1,6 +1,6 @@
-<img align="right" src="https://raw.githubusercontent.com/vroncevic/gen_message_queue/dev/docs/gen_message_queue_logo.png" width="25%">
-
 # Generate Message Queue
+
+<img align="right" src="https://raw.githubusercontent.com/vroncevic/gen_message_queue/dev/docs/gen_message_queue_logo.png" width="25%">
 
 **gen_message_queue** is tool for generation message queue modules.
 

@@ -37,7 +37,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2024, https://vroncevic.github.io/gen_message_queue'
 __credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
-__version__ = '1.1.3'
+__version__ = '1.1.4'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -84,6 +84,8 @@ class ReadTemplate(FileCheck):
 
             :param config: LKM configuration
             :type config: <Dict[Any, Any]>
+            :param pro_name: LKM name | None
+            :type pro_name: <str> | <NoneType>
             :param pro_type: LKM type | None
             :type pro_type: <str> | <NoneType>
             :param verbose: Enable/Disable verbose option
@@ -95,19 +97,22 @@ class ReadTemplate(FileCheck):
         error_msg: str | None = None
         error_id: int | None = None
         error_msg, error_id = self.check_params([
-            ('dict:config', config), ('str:pro_type', pro_type)
+            ('dict:config', config),
+            ('str:pro_name', pro_name),
+            ('str:pro_type', pro_type)
         ])
         if error_id == self.TYPE_ERROR:
             raise ATSTypeError(error_msg)
         if not bool(config):
             raise ATSValueError('missing project templates')
+        if not bool(pro_name):
+            raise ATSValueError('missing project name')
         if not bool(pro_type):
             raise ATSValueError('missing project type')
         current_dir: str = dirname(realpath(__file__))
         pro_structure: str = f'{current_dir}{self._TEMPLATE_DIR}'
-        template_dir = f'{pro_structure}{pro_type}/'
+        template_dir: str = f'{pro_structure}{pro_type}/'
         template_content: Dict[str, str] = {}
-        templates: List[str] = []
         index: int = -1
         if pro_type in config['modules'][0]:
             index = 0
@@ -115,8 +120,8 @@ class ReadTemplate(FileCheck):
             index = 1
         else:
             return template_content
-        modules = config['modules'][index][pro_type]
-        templates = config['templates'][index][pro_type]
+        modules: List[str] = config['modules'][index][pro_type]
+        templates: List[str] = config['templates'][index][pro_type]
         for module, template in zip(modules, templates):
             template_file: str = f'{template_dir}{template}'
             with open(template_file, 'r', encoding='utf-8') as module_file:
