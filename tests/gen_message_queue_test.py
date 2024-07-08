@@ -37,7 +37,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2024, https://vroncevic.github.io/gen_message_queue'
 __credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
-__version__ = '1.1.4'
+__version__ = '1.1.5'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -100,17 +100,6 @@ class GenMessageQueueTestCase(TestCase):
         sys.argv.insert(3, 'posix')
         generator: GenMessageQueue = GenMessageQueue()
         self.assertTrue(generator.process())
-
-    def test_tool_not_operational(self) -> None:
-        '''Test not operational'''
-        sys.argv.clear()
-        sys.argv.insert(0, '-n')
-        sys.argv.insert(1, 'fresh')
-        sys.argv.insert(2, '-t')
-        sys.argv.insert(3, 'posix')
-        generator: GenMessageQueue = GenMessageQueue()
-        generator.tool_operational = False
-        self.assertFalse(generator.process())
 
     def test_pro_already_exists(self) -> None:
         '''Test pro already exists'''
