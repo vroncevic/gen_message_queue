@@ -109,44 +109,54 @@ Generator structure:
 
 ```bash
     gen_message_queue/
-        ├── conf/
-        │   ├── gen_message_queue.cfg
-        │   ├── gen_message_queue.logo
-        │   ├── gen_message_queue_util.cfg
-        │   ├── project.yaml
-        │   └── template/
-        │       ├── posix/
-        │       │   ├── mq_posix_close.template
-        │       │   ├── mq_posix_fatal_error.template
-        │       │   ├── mq_posix_open_mode.template
-        │       │   ├── mq_posix_open.template
-        │       │   ├── mq_posix_receive.template
-        │       │   ├── mq_posix_send.template
-        │       │   ├── mq_posix.template
-        │       │   └── mq_posix_unlink.template
-        │       └── sysv/
-        │           ├── mq_sysv_control.template
-        │           ├── mq_sysv_file_to_key.template
-        │           ├── mq_sysv_get_buffer.template
-        │           ├── mq_sysv_get_buffer_type.template
-        │           ├── mq_sysv_key_to_id.template
-        │           ├── mq_sysv_receive.template
-        │           ├── mq_sysv_send.template
-        │           ├── mq_sysv_set_buffer.template
-        │           ├── mq_sysv_set_buffer_type.template
-        │           └── mq_sysv.template
-        ├── __init__.py
-        ├── log/
-        │   └── gen_message_queue.log
-        ├── pro/
-        │   ├── __init__.py
-        │   ├── read_template.py
-        │   └── write_template.py
-        └── run/
-            └── gen_message_queue_run.py
-        
+           ├── conf/
+           │   ├── gen_message_queue.cfg
+           │   ├── gen_message_queue.logo
+           │   ├── gen_message_queue_util.cfg
+           │   ├── project.yaml
+           │   └── template/
+           │       ├── posix/
+           │       │   ├── mq_posix_close.template
+           │       │   ├── mq_posix_fatal_error.template
+           │       │   ├── mq_posix_open_mode.template
+           │       │   ├── mq_posix_open.template
+           │       │   ├── mq_posix_receive.template
+           │       │   ├── mq_posix_send.template
+           │       │   ├── mq_posix.template
+           │       │   └── mq_posix_unlink.template
+           │       └── sysv/
+           │           ├── mq_sysv_control.template
+           │           ├── mq_sysv_file_to_key.template
+           │           ├── mq_sysv_get_buffer.template
+           │           ├── mq_sysv_get_buffer_type.template
+           │           ├── mq_sysv_key_to_id.template
+           │           ├── mq_sysv_receive.template
+           │           ├── mq_sysv_send.template
+           │           ├── mq_sysv_set_buffer.template
+           │           ├── mq_sysv_set_buffer_type.template
+           │           └── mq_sysv.template
+           ├── __init__.py
+           ├── log/
+           │   └── gen_message_queue.log
+           ├── pro/
+           │   ├── __init__.py
+           │   ├── read_template.py
+           │   └── write_template.py
+           └── run/
+               └── gen_message_queue_run.py
+
         8 directories, 28 files
 ```
+
+### Code coverage
+
+| Name | Stmts | Miss | Cover |
+|------|-------|------|-------|
+| `gen_message_queue/__init__.py` | 75 | 14 | 81% |
+| `gen_message_queue/pro/__init__.py` | 62 | 2 | 97% |
+| `gen_message_queue/pro/read_template.py` | 54 | 7 | 87% |
+| `gen_message_queue/pro/write_template.py` | 54 | 4 | 93% |
+| **Total** | 245 | 27 | 89% |
 
 ### Docs
 
