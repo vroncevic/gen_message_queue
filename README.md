@@ -23,6 +23,7 @@ other information that should be provided before the modules are installed.
     - [Install using docker](#install-using-docker)
 - [Dependencies](#dependencies)
 - [Tool structure](#tool-structure)
+- [Code coverage](#code-coverage)
 - [Docs](#docs)
 - [Contributing](#contributing)
 - [Copyright and licence](#copyright-and-licence)
@@ -152,11 +153,11 @@ Generator structure:
 
 | Name | Stmts | Miss | Cover |
 |------|-------|------|-------|
-| `gen_message_queue/__init__.py` | 75 | 14 | 81% |
-| `gen_message_queue/pro/__init__.py` | 62 | 2 | 97% |
-| `gen_message_queue/pro/read_template.py` | 54 | 7 | 87% |
-| `gen_message_queue/pro/write_template.py` | 54 | 4 | 93% |
-| **Total** | 245 | 27 | 89% |
+| `gen_message_queue/__init__.py` | 73 | 12 | 84%|
+| `gen_message_queue/pro/__init__.py` | 60 | 0 | 100%|
+| `gen_message_queue/pro/read_template.py` | 52 | 5 | 90%|
+| `gen_message_queue/pro/write_template.py` | 52 | 2 | 96%|
+| **Total** | 237 | 19 | 92% |
 
 ### Docs
 
@@ -175,7 +176,7 @@ More documentation and info at
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Copyright (C) 2018 - 2024 by [vroncevic.github.io/gen_message_queue](https://vroncevic.github.io/gen_message_queue)
+Copyright (C) 2018 - 2026 by [vroncevic.github.io/gen_message_queue](https://vroncevic.github.io/gen_message_queue)
 
 **gen_message_queue** is free software; you can redistribute it and/or modify
 it under the same terms as Python itself, either Python version 3.x or,
