@@ -1,0 +1,24 @@
+{
+    "posix": {
+        "source_dir": "posix",
+        "path_replacements": {
+            "dummy_nonexistent": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    },
+    "sysv": {
+        "source_dir": "sysv",
+        "path_replacements": {
+            "dummy_nonexistent": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**"
+        ]
+    }
+}
