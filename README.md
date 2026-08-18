@@ -1,14 +1,14 @@
-# Generate Message Queue
+# Create MessageQueue project skeleton
 
 <img align="right" src="https://raw.githubusercontent.com/vroncevic/gen_message_queue/dev/docs/gen_message_queue_logo.png" width="25%">
 
-**gen_message_queue** is tool for generation message queue modules.
+**gen_message_queue** is tool for creating MessageQueue project skeleton.
 
-Developed in **[python](https://www.python.org/)** code: **100%**.
+Developed in **[python](https://www.python.org/)** code.
 
-The README is used to introduce the modules and provide instructions on
-how to install the modules, any machine dependencies it may have and any
-other information that should be provided before the modules are installed.
+The README is used to introduce the tool and provide instructions on
+how to install the tool, any machine dependencies it may have and any
+other information that should be provided before the tool is installed.
 
 [![gen_message_queue python checker](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_python_checker.yml/badge.svg)](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_python_checker.yml) [![gen_message_queue package checker](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_package_checker.yml/badge.svg)](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_package.yml) [![GitHub issues open](https://img.shields.io/github/issues/vroncevic/gen_message_queue.svg)](https://github.com/vroncevic/gen_message_queue/issues) [![GitHub contributors](https://img.shields.io/github/contributors/vroncevic/gen_message_queue.svg)](https://github.com/vroncevic/gen_message_queue/graphs/contributors)
 
@@ -16,27 +16,31 @@ other information that should be provided before the modules are installed.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
-- [Installation](#installation)
+- [🚀 Installation](#-installation)
     - [Install using pip](#install-using-pip)
     - [Install using build](#install-using-build)
     - [Install using py setup](#install-using-py-setup)
     - [Install using docker](#install-using-docker)
-- [Dependencies](#dependencies)
-- [Tool structure](#tool-structure)
-- [Code coverage](#code-coverage)
-- [Docs](#docs)
-- [Contributing](#contributing)
-- [Copyright and licence](#copyright-and-licence)
+- [📦 Dependencies](#-dependencies)
+- [📁 Tool structure](#-tool-structure)
+  - [✨ Features](#-features)
+- [📊 Code coverage](#-code-coverage)
+- [🛠 Usage](#-usage)
+- [📚 Docs](#-docs)
+- [👥 Contributing](#-contributing)
+- [📄 Copyright and licence](#-copyright-and-licence)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-### Installation
+### 🚀 Installation
+
+Used next development environment
 
 ![debian linux os](https://raw.githubusercontent.com/vroncevic/gen_message_queue/dev/docs/debtux.png)
 
 [![gen_message_queue python3 build](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_python3_build.yml/badge.svg)](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_python3_build.yml)
 
-Currently there are three ways to install package
+Currently there are four ways to install package
 * Install process based on using pip mechanism
 * Install process based on build mechanism
 * Install process based on setup.py mechanism
@@ -44,13 +48,13 @@ Currently there are three ways to install package
 
 ##### Install using pip
 
-**gen_message_queue** is located at **[pypi.org](https://pypi.org/project/gen-message-queue/)**.
+**gen_message_queue** is located at **[pypi.org](https://pypi.org/project/gen_message_queue/)**.
 
 You can install by using pip
 
 ```bash
 # python3
-pip3 install gen-message-queue
+pip3 install gen_message_queue
 ```
 
 ##### Install using build
@@ -65,6 +69,8 @@ cd gen_message_queue-x.y.z/
 # python3
 wget https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py 
+# python3
+python3 get-pip.py
 python3 -m pip install --upgrade setuptools
 python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade build
@@ -72,111 +78,200 @@ pip3 install -r requirements.txt
 python3 -m build --no-isolation --wheel
 pip3 install ./dist/gen_message_queue-*-py3-none-any.whl
 rm -f get-pip.py
-chmod 755 /usr/local/lib/python3.10/dist-packages/usr/local/bin/gen_message_queue_run.py
-ln -s /usr/local/lib/python3.10/dist-packages/usr/local/bin/gen_message_queue_run.py /usr/local/bin/gen_message_queue_run.py
 ```
 
 ##### Install using py setup
 
-Navigate to release **[page](https://github.com/vroncevic/gen_message_queue/releases/)** download and extract release archive.
+Navigate to **[release page](https://github.com/vroncevic/gen_message_queue/releases)** download and extract release archive.
 
-To install modules, locate and run setup.py with arguments
+To install **gen_message_queue** locate and run setup.py with arguments
 
 ```bash
 tar xvzf gen_message_queue-x.y.z.tar.gz
-cd gen_message_queue-x.y.z/
+cd gen_message_queue-x.y.z
 # python3
 pip3 install -r requirements.txt
 python3 setup.py install_lib
-python3 setup.py install_data
 python3 setup.py install_egg_info
 ```
 
 ##### Install using docker
 
-You can use docker to create image/container.
+You can use Dockerfile to create image/container.
 
-### Dependencies
+### 📦 Dependencies
 
 **gen_message_queue** requires next modules and libraries
 
-* [ats-utilities - Python App/Tool/Script Utilities](https://vroncevic.github.io/ats_utilities)
+* [ats-utilities - Python App/Tool/Script Utilities](https://pypi.org/project/ats-utilities/)
 
-### Tool structure
+### 📁 Tool structure
 
-**gen_message_queue** is based on OOP
+**gen_message_queue** is based on OOP.
 
-Generator structure:
+Tool structure
+
+<details>
+<summary><b>Click to expand framework structure</b></summary>
 
 ```bash
     gen_message_queue/
-           ├── conf/
-           │   ├── gen_message_queue.cfg
-           │   ├── gen_message_queue.logo
-           │   ├── gen_message_queue_util.cfg
-           │   ├── project.yaml
-           │   └── template/
-           │       ├── posix/
-           │       │   ├── mq_posix_close.template
-           │       │   ├── mq_posix_fatal_error.template
-           │       │   ├── mq_posix_open_mode.template
-           │       │   ├── mq_posix_open.template
-           │       │   ├── mq_posix_receive.template
-           │       │   ├── mq_posix_send.template
-           │       │   ├── mq_posix.template
-           │       │   └── mq_posix_unlink.template
-           │       └── sysv/
-           │           ├── mq_sysv_control.template
-           │           ├── mq_sysv_file_to_key.template
-           │           ├── mq_sysv_get_buffer.template
-           │           ├── mq_sysv_get_buffer_type.template
-           │           ├── mq_sysv_key_to_id.template
-           │           ├── mq_sysv_receive.template
-           │           ├── mq_sysv_send.template
-           │           ├── mq_sysv_set_buffer.template
-           │           ├── mq_sysv_set_buffer_type.template
-           │           └── mq_sysv.template
-           ├── __init__.py
-           ├── log/
-           │   └── gen_message_queue.log
-           ├── pro/
-           │   ├── __init__.py
-           │   ├── read_template.py
-           │   └── write_template.py
-           └── run/
-               └── gen_message_queue_run.py
+         ├── core/
+         │   ├── __init__.py
+         │   ├── model/
+         │   │   ├── __init__.py
+         │   │   └── project_setup.py
+         │   └── service/
+         │       ├── engine.py
+         │       ├── __init__.py
+         │       ├── iservice.py
+         │       └── isubprocessor.py
+         ├── engine.py
+         ├── infrastructure/
+         │   ├── cli/
+         │   │   ├── engine.py
+         │   │   ├── icli.py
+         │   │   ├── __init__.py
+         │   │   └── setup/
+         │   │       ├── bundle.py
+         │   │       ├── dep_validator.py
+         │   │       ├── dependencies.py
+         │   │       ├── factory.py
+         │   │       ├── __init__.py
+         │   │       ├── keys.py
+         │   │       ├── opt_validator.py
+         │   │       ├── options.py
+         │   │       ├── registry.py
+         │   │       └── validator.py
+         │   ├── command/
+         │   │   ├── command.py
+         │   │   ├── gen_message_queue_command_definition.py
+         │   │   ├── gen_message_queue_command_executor.py
+         │   │   ├── icommand_definition.py
+         │   │   ├── icommand_executor.py
+         │   │   └── __init__.py
+         │   ├── config/
+         │   │   ├── gen_message_queue.cfg
+         │   │   ├── gen_message_queue.logo
+         │   │   ├── scheme.json
+         │   │   └── templates.tgz
+         │   └── subprocessor.py
+         ├── __init__.py
+         ├── py.typed
+         └── setup/
+             ├── bundle.py
+             ├── dep_validator.py
+             ├── dependencies.py
+             ├── factory.py
+             ├── __init__.py
+             ├── keys.py
+             ├── opt_validator.py
+             ├── options.py
+             ├── registry.py
+             └── validator.py
 
-        8 directories, 28 files
+     10 directories, 44 files
 ```
+</details>
 
-### Code coverage
+#### ✨ Features
+
+* Automatically scaffolds MessageQueue projects with build/make files.
+* Provides a modular and extensible architecture based on OOP and SOLID principles.
+* Includes command line interface (CLI) support via a command/executor structure.
+* Robust validation of project bundles, dependencies, and options.
+* Comes with configurable templates and JSON schema definitions.
+* High code quality with full type checking and 100% unit test coverage.
+
+### 📊 Code coverage
+
+<details>
+<summary><b>Click to expand code coverage</b></summary>
 
 | Name | Stmts | Miss | Cover |
 |------|-------|------|-------|
-| `gen_message_queue/__init__.py` | 73 | 12 | 84%|
-| `gen_message_queue/pro/__init__.py` | 60 | 0 | 100%|
-| `gen_message_queue/pro/read_template.py` | 52 | 5 | 90%|
-| `gen_message_queue/pro/write_template.py` | 52 | 2 | 96%|
-| **Total** | 237 | 19 | 92% |
+| `gen_message_queue/__init__.py` | 8 | 0 | 100%|
+| `gen_message_queue/core/__init__.py` | 9 | 0 | 100%|
+| `gen_message_queue/core/model/__init__.py` | 9 | 0 | 100%|
+| `gen_message_queue/core/model/project_setup.py` | 14 | 0 | 100%|
+| `gen_message_queue/core/service/__init__.py` | 9 | 0 | 100%|
+| `gen_message_queue/core/service/engine.py` | 27 | 0 | 100%|
+| `gen_message_queue/core/service/iservice.py` | 14 | 0 | 100%|
+| `gen_message_queue/core/service/isubprocessor.py` | 14 | 0 | 100%|
+| `gen_message_queue/engine.py` | 57 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/__init__.py` | 9 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/engine.py` | 39 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/icli.py` | 14 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/setup/__init__.py` | 9 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/setup/bundle.py` | 22 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/setup/dep_validator.py` | 36 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/setup/dependencies.py` | 18 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/setup/factory.py` | 35 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/setup/keys.py` | 26 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/setup/opt_validator.py` | 36 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/setup/options.py` | 15 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/setup/registry.py` | 24 | 0 | 100%|
+| `gen_message_queue/infrastructure/cli/setup/validator.py` | 43 | 0 | 100%|
+| `gen_message_queue/infrastructure/command/__init__.py` | 9 | 0 | 100%|
+| `gen_message_queue/infrastructure/command/command.py` | 16 | 0 | 100%|
+| `gen_message_queue/infrastructure/command/gen_message_queue_command_definition.py` | 24 | 0 | 100%|
+| `gen_message_queue/infrastructure/command/gen_message_queue_command_executor.py` | 21 | 0 | 100%|
+| `gen_message_queue/infrastructure/command/icommand_definition.py` | 14 | 0 | 100%|
+| `gen_message_queue/infrastructure/command/icommand_executor.py` | 14 | 0 | 100%|
+| `gen_message_queue/infrastructure/subprocessor.py` | 57 | 0 | 100%|
+| `gen_message_queue/setup/__init__.py` | 9 | 0 | 100%|
+| `gen_message_queue/setup/bundle.py` | 23 | 0 | 100%|
+| `gen_message_queue/setup/dep_validator.py` | 36 | 0 | 100%|
+| `gen_message_queue/setup/dependencies.py` | 19 | 0 | 100%|
+| `gen_message_queue/setup/factory.py` | 48 | 0 | 100%|
+| `gen_message_queue/setup/keys.py` | 27 | 0 | 100%|
+| `gen_message_queue/setup/opt_validator.py` | 34 | 0 | 100%|
+| `gen_message_queue/setup/options.py` | 12 | 0 | 100%|
+| `gen_message_queue/setup/registry.py` | 32 | 0 | 100%|
+| `gen_message_queue/setup/validator.py` | 48 | 0 | 100%|
+| **Total** | 930 | 0 | 100% |
 
-### Docs
+</details>
 
-[![Documentation Status](https://readthedocs.org/projects/gen_message_queue/badge/?version=latest)](https://gen-message-queue.readthedocs.io/en/latest/?badge=latest)
+### 🛠 Usage
+
+Install package
+
+```bash
+pip3 install gen_message_queue
+```
+
+Prepare main entry point by downloading [main.py](https://raw.githubusercontent.com/vroncevic/gen_message_queue/main/main.py) or create your own.
+
+
+```bash
+wget -O main.py https://raw.githubusercontent.com/vroncevic/gen_message_queue/main/main.py
+```
+
+Running tool for creating new MessageQueue project skeleton
+
+```bash
+python3 main.py create --name mytool --type posix --output ./demo/
+```
+
+### 📚 Docs
+
+[![Documentation Status](https://readthedocs.org/projects/gen-message-queue/badge/?version=latest)](https://gen-message-queue.readthedocs.io/en/latest/?badge=latest)
 
 More documentation and info at
 
 * [gen_message_queue.readthedocs.io](https://gen-message-queue.readthedocs.io)
 * [www.python.org](https://www.python.org/)
 
-### Contributing
+### 👥 Contributing
 
 [Contributing to gen_message_queue](CONTRIBUTING.md)
 
-### Copyright and licence
+### 📄 Copyright and licence
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Copyright (C) 2018 - 2026 by [vroncevic.github.io/gen_message_queue](https://vroncevic.github.io/gen_message_queue)
+Copyright (C) 2025 - 2026 by [vroncevic.github.io/gen_message_queue](https://vroncevic.github.io/gen_message_queue/)
 
 **gen_message_queue** is free software; you can redistribute it and/or modify
 it under the same terms as Python itself, either Python version 3.x or,
