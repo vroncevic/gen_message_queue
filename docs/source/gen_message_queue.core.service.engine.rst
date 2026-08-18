@@ -1,7 +1,7 @@
-gen\_message\_queue.pro.write\_template module
+gen\_message\_queue.core.service.engine module
 ==============================================
 
-.. automodule:: gen_message_queue.pro.write_template
+.. automodule:: gen_message_queue.core.service.engine
    :members:
    :undoc-members:
    :show-inheritance:

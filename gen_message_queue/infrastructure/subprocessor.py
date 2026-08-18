@@ -154,4 +154,3 @@ class SubProcessor:
             :exceptions: None.
         '''
         return to_str(self)
-        
