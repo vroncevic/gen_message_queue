@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
 '''
@@ -26,14 +25,14 @@ from os import walk
 from os.path import abspath, dirname, join, relpath
 from setuptools import setup, find_packages
 
-__author__: str = 'Vladimir Roncevic'
-__copyright__: str = '(C) 2026, https://vroncevic.github.io/gen_message_queue'
-__credits__: list[str] = ['Vladimir Roncevic', 'Python Software Foundation']
-__license__: str = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
-__version__: str = '1.1.7'
-__maintainer__: str = 'Vladimir Roncevic'
-__email__: str = 'elektron.ronca@gmail.com'
-__status__: str = 'Updated'
+__author__ = 'Vladimir Roncevic'
+__copyright__ = '(C) 2026, https://vroncevic.github.io/gen_message_queue'
+__credits__ = ['Vladimir Roncevic', 'Python Software Foundation']
+__license__ = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
+__version__ = '1.1.8'
+__maintainer__ = 'Vladimir Roncevic'
+__email__ = 'elektron.ronca@gmail.com'
+__status__ = 'Updated'
 
 THIS_DIR: str = abspath(dirname(__file__))
 long_description: str | None = None
@@ -71,7 +70,7 @@ def find_package_data(pkg: str) -> list[str]:
 
 setup(
     name='gen_message_queue',
-    version='1.1.7',
+    version='1.1.8',
     description='Generating message queue project',
     author='Vladimir Roncevic',
     author_email='elektron.ronca@gmail.com',
