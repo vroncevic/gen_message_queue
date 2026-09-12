@@ -42,7 +42,7 @@ class ProjectSetup:
         It defines:
 
             :attributes:
-                | chip_config - Mapping with chip configuration.
+                | pro_config - Mapping with project configuration.
     '''
 
-    chip_config: Mapping[str, object]
+    pro_config: Mapping[str, object]

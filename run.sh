@@ -7,5 +7,5 @@
 # @author  Vladimir Roncevic <elektron.ronca@gmail.com>
 #
 
-python3 main.py create --name "my_message_queue" --type "posix" --output "./demo/posix"
-python3 main.py create --name "my_message_queue" --type "sysv" --output "./demo/sysv"
+python3 main.py create --name "my_message_queue" --type "posix" --output "./demo/posix" --demo
+python3 main.py create --name "my_message_queue" --type "sysv" --output "./demo/sysv" --demo

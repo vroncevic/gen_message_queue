@@ -23,7 +23,7 @@ class TestGenMessageQueueCommand(unittest.TestCase):
         definition = GenMessageQueueCommandDefinition()
         self.assertEqual(definition.name, 'create')
         self.assertEqual(definition.help_text, 'Generate MessageQueue project skeleton')
-        self.assertEqual(len(definition.options), 3)
+        self.assertEqual(len(definition.options), 4)
         self.assertTrue(isinstance(str(definition), str))
 
     def test_executor_execute_success(self) -> None:
@@ -55,3 +55,8 @@ class TestGenMessageQueueCommand(unittest.TestCase):
         definition = GenMessageQueueCommandDefinition()
         executor = GenMessageQueueCommandExecutor(definition)
         self.assertTrue(isinstance(str(executor), str))
+
+    def test_executor_get_definition(self) -> None:
+        definition = GenMessageQueueCommandDefinition()
+        executor = GenMessageQueueCommandExecutor(definition)
+        self.assertEqual(executor.get_definition(), definition)

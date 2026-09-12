@@ -7,10 +7,36 @@
         "exclude": [
             "**/.coverage",
             "**/.vscode/**",
+            "**/.git/**",
+            "CMakeLists.txt",
+            "demo_*.c"
+        ]
+    },
+    "posix_demo": {
+        "source_dir": "posix",
+        "path_replacements": {
+            "dummy_nonexistent": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
             "**/.git/**"
         ]
     },
     "sysv": {
+        "source_dir": "sysv",
+        "path_replacements": {
+            "dummy_nonexistent": "project_name"
+        },
+        "exclude": [
+            "**/.coverage",
+            "**/.vscode/**",
+            "**/.git/**",
+            "CMakeLists.txt",
+            "demo_*.c"
+        ]
+    },
+    "sysv_demo": {
         "source_dir": "sysv",
         "path_replacements": {
             "dummy_nonexistent": "project_name"

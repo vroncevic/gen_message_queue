@@ -21,6 +21,8 @@ Info
 
 from __future__ import annotations
 
+from os.path import abspath, dirname, join
+
 from ats_utilities.base.setup.factory import BaseBundleFactory
 from ats_utilities.base.setup.bundle import BaseBundle
 from ats_utilities.base.setup.options import BaseBundleOptions
@@ -66,7 +68,10 @@ class GenMessageQueueBundleFactory:
                 | get_version - Returns the factory version.
     '''
 
-    _info_file: str = 'gen_message_queue/infrastructure/config/gen_message_queue.cfg'
+    _info_file: str = join(
+        dirname(dirname(abspath(__file__))),
+        'infrastructure', 'config', 'gen_message_queue.cfg'
+    )
 
     @classmethod
     def create_bundle(cls, options: GenMessageQueueBundleOptions | None = None) -> GenMessageQueueBundle:

@@ -1,14 +1,14 @@
 name: gen_message_queue_python3_build
 on:
   push:
-    branches: [ master ]
+    branches: [ master, main ]
     paths:
       - 'gen_message_queue/**'
       - 'MANIFEST.in'
       - 'pyproject.toml'
       - 'setup.py'
   pull_request:
-    branches: [ master ]
+    branches: [ master, main ]
     paths:
       - 'gen_message_queue/**'
       - 'MANIFEST.in'

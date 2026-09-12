@@ -21,7 +21,7 @@ Info
 
 from __future__ import annotations
 
-from sys import exit
+from sys import exit as sys_exit
 
 from gen_message_queue.engine import GenMessageQueue
 from gen_message_queue.setup.factory import GenMessageQueueBundleFactory
@@ -55,4 +55,4 @@ if __name__ == '__main__':
         :exit code: 0 if successful, 1 otherwise.
         :exceptions: None
     '''
-    exit(0 if main() else 1)
+    sys_exit(0 if main() else 1)

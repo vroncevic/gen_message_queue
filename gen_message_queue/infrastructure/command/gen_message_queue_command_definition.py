@@ -101,6 +101,15 @@ class GenMessageQueueCommandDefinition:
                 required=True,
                 choices=None,
                 nargs=None
+            ),
+            OptionData(
+                name="--demo",
+                help_text="generate demo sender/receiver applications and CMake build environment",
+                action="store_true",
+                default=False,
+                required=False,
+                choices=None,
+                nargs=None
             )
         ]
 

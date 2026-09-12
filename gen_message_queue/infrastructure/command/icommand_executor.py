@@ -34,7 +34,7 @@ __status__ = 'Updated'
 
 
 @runtime_checkable
-class ICommandExecutor[ParametersType, ReturnType, ServiceType](Protocol):
+class ICommandExecutor[DefinitionType, ParametersType, ReturnType, ServiceType](Protocol):
     '''
         Abstract ICommandExecutor strategy interface.
 
@@ -42,7 +42,7 @@ class ICommandExecutor[ParametersType, ReturnType, ServiceType](Protocol):
 
             :methods:
                 | execute - Executes the command strategy.
-                | __str__ - Returns the ICommandExecutor as string representation.
+                | get_definition - Returns the command definition metadata.
     '''
 
     def execute(self, *, params: ParametersType, service: ServiceType) -> ReturnType:
@@ -54,9 +54,9 @@ class ICommandExecutor[ParametersType, ReturnType, ServiceType](Protocol):
             :return: The execution result.
         '''
 
-    def __str__(self) -> str:
+    def get_definition(self) -> DefinitionType:
         '''
-            Returns the ICommandExecutor as string representation.
+            Returns the command definition metadata.
 
-            :return: The ICommandExecutor as string representation.
+            :return: The command definition metadata.
         '''
