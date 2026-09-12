@@ -10,7 +10,7 @@ The README is used to introduce the tool and provide instructions on
 how to install the tool, any machine dependencies it may have and any
 other information that should be provided before the tool is installed.
 
-[![gen_message_queue python checker](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_python_checker.yml/badge.svg)](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_python_checker.yml) [![gen_message_queue package checker](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_package_checker.yml/badge.svg)](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_package.yml) [![GitHub issues open](https://img.shields.io/github/issues/vroncevic/gen_message_queue.svg)](https://github.com/vroncevic/gen_message_queue/issues) [![GitHub contributors](https://img.shields.io/github/contributors/vroncevic/gen_message_queue.svg)](https://github.com/vroncevic/gen_message_queue/graphs/contributors)
+[![gen_message_queue python checker](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_python_checker.yml/badge.svg)](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_python_checker.yml) [![gen_message_queue package checker](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_package_checker.yml/badge.svg)](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_package.yml) [![gen_message_queue interface checker](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_interface_checker.yml/badge.svg)](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_interface_checker.yml) [![gen_message_queue isp checker](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_isp_checker.yml/badge.svg)](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_isp_checker.yml) [![gen_message_queue srp checker](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_srp_checker.yml/badge.svg)](https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_srp_checker.yml) [![GitHub issues open](https://img.shields.io/github/issues/vroncevic/gen_message_queue.svg)](https://github.com/vroncevic/gen_message_queue/issues) [![GitHub contributors](https://img.shields.io/github/contributors/vroncevic/gen_message_queue.svg)](https://github.com/vroncevic/gen_message_queue/graphs/contributors)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -190,7 +190,7 @@ Tool structure
 
 | Name | Stmts | Miss | Cover |
 |------|-------|------|-------|
-| `gen_message_queue/__init__.py` | 8 | 0 | 100%|
+| `gen_message_queue/__init__.py` | 9 | 0 | 100%|
 | `gen_message_queue/core/__init__.py` | 9 | 0 | 100%|
 | `gen_message_queue/core/model/__init__.py` | 9 | 0 | 100%|
 | `gen_message_queue/core/model/project_setup.py` | 14 | 0 | 100%|
@@ -215,21 +215,21 @@ Tool structure
 | `gen_message_queue/infrastructure/command/__init__.py` | 9 | 0 | 100%|
 | `gen_message_queue/infrastructure/command/command.py` | 16 | 0 | 100%|
 | `gen_message_queue/infrastructure/command/gen_message_queue_command_definition.py` | 24 | 0 | 100%|
-| `gen_message_queue/infrastructure/command/gen_message_queue_command_executor.py` | 21 | 0 | 100%|
+| `gen_message_queue/infrastructure/command/gen_message_queue_command_executor.py` | 23 | 0 | 100%|
 | `gen_message_queue/infrastructure/command/icommand_definition.py` | 14 | 0 | 100%|
 | `gen_message_queue/infrastructure/command/icommand_executor.py` | 14 | 0 | 100%|
-| `gen_message_queue/infrastructure/subprocessor.py` | 57 | 0 | 100%|
+| `gen_message_queue/infrastructure/subprocessor.py` | 59 | 0 | 100%|
 | `gen_message_queue/setup/__init__.py` | 9 | 0 | 100%|
 | `gen_message_queue/setup/bundle.py` | 23 | 0 | 100%|
 | `gen_message_queue/setup/dep_validator.py` | 36 | 0 | 100%|
 | `gen_message_queue/setup/dependencies.py` | 19 | 0 | 100%|
-| `gen_message_queue/setup/factory.py` | 48 | 0 | 100%|
+| `gen_message_queue/setup/factory.py` | 49 | 0 | 100%|
 | `gen_message_queue/setup/keys.py` | 27 | 0 | 100%|
 | `gen_message_queue/setup/opt_validator.py` | 34 | 0 | 100%|
 | `gen_message_queue/setup/options.py` | 12 | 0 | 100%|
 | `gen_message_queue/setup/registry.py` | 32 | 0 | 100%|
 | `gen_message_queue/setup/validator.py` | 48 | 0 | 100%|
-| **Total** | 930 | 0 | 100% |
+| **Total** | 936 | 0 | 100% |
 
 </details>
 

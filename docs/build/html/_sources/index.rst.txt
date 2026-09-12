@@ -9,13 +9,22 @@ The README is used to introduce the tool and provide instructions on
 how to install the tool, any machine dependencies it may have and any
 other information that should be provided before the tool is installed.
 
-|gen_message_queue python checker| |gen_message_queue python package| |github issues| |documentation status| |github contributors|
+|gen_message_queue python checker| |gen_message_queue python package| |gen_message_queue interface checker| |gen_message_queue isp checker| |gen_message_queue srp checker| |github issues| |documentation status| |github contributors|
 
 .. |gen_message_queue python checker| image:: https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_python_checker.yml/badge.svg
    :target: https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_python_checker.yml
 
 .. |gen_message_queue python package| image:: https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_package_checker.yml/badge.svg
    :target: https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_package.yml
+
+.. |gen_message_queue interface checker| image:: https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_interface_checker.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_interface_checker.yml
+
+.. |gen_message_queue isp checker| image:: https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_isp_checker.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_isp_checker.yml
+
+.. |gen_message_queue srp checker| image:: https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_srp_checker.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_message_queue/actions/workflows/gen_message_queue_srp_checker.yml
 
 .. |github issues| image:: https://img.shields.io/github/issues/vroncevic/gen_message_queue.svg
    :target: https://github.com/vroncevic/gen_message_queue/issues

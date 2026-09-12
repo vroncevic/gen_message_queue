@@ -32,4 +32,4 @@ class TestGenMessageQueueBundleFactory(unittest.TestCase):
             GenMessageQueueBundleFactory.create_bundle(options)
 
     def test_get_version(self) -> None:
-        self.assertEqual(GenMessageQueueBundleFactory.get_version(), '1.1.7')
+        self.assertEqual(GenMessageQueueBundleFactory.get_version(), '1.1.8')

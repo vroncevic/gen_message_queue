@@ -38,7 +38,7 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2026, https://vroncevic.github.io/gen_message_queue'
 __credits__ = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
-__version__ = '1.1.7'
+__version__ = '1.1.8'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
@@ -98,6 +98,8 @@ class SubProcessor:
             output_dir: str = params.get('output')
             project_name: str = params.get('name')
             project_type: str = params.get('type', 'posix')
+            with_demo: bool = bool(params.get('demo', False))
+            template_key: str = f'{project_type}_demo' if with_demo else project_type
             scheme: str = f'{current_dir}/{self._scheme}'
             templates: str = f'{current_dir}/{self._templates}'
 
@@ -105,7 +107,7 @@ class SubProcessor:
                 data=GeneratorData(
                     archive_path=templates,
                     target_dir=output_dir,
-                    template_key=project_type,
+                    template_key=template_key,
                     scheme=scheme,
                     template_values={
                         'project_name': project_name,

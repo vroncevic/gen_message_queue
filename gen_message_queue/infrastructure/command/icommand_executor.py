@@ -27,14 +27,14 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2026, https://vroncevic.github.io/gen_message_queue'
 __credits__ = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_message_queue/blob/dev/LICENSE'
-__version__ = '1.1.7'
+__version__ = '1.1.8'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
 
 
 @runtime_checkable
-class ICommandExecutor[ParametersType, ReturnType, ServiceType](Protocol):
+class ICommandExecutor[DefinitionType, ParametersType, ReturnType, ServiceType](Protocol):
     '''
         Abstract ICommandExecutor strategy interface.
 
@@ -42,7 +42,7 @@ class ICommandExecutor[ParametersType, ReturnType, ServiceType](Protocol):
 
             :methods:
                 | execute - Executes the command strategy.
-                | __str__ - Returns the ICommandExecutor as string representation.
+                | get_definition - Returns the command definition metadata.
     '''
 
     def execute(self, *, params: ParametersType, service: ServiceType) -> ReturnType:
@@ -54,9 +54,9 @@ class ICommandExecutor[ParametersType, ReturnType, ServiceType](Protocol):
             :return: The execution result.
         '''
 
-    def __str__(self) -> str:
+    def get_definition(self) -> DefinitionType:
         '''
-            Returns the ICommandExecutor as string representation.
+            Returns the command definition metadata.
 
-            :return: The ICommandExecutor as string representation.
+            :return: The command definition metadata.
         '''

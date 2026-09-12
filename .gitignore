@@ -5,7 +5,10 @@ __pycache__/
 # Reports
 *.report
 *.xml
-*.json
-.coverage.gen_message_queue
+*report*.json
+*coverage*.json
+/*.json
 .coverage
 htmlcov/
+.coverage.gen_message_queue
+demo/
